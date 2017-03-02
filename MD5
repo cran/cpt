@@ -1,0 +1,13 @@
+bf08ea2f965acb7bf0f5a2a8ebd8d29c *DESCRIPTION
+f285cee7fbebbcbce60f6e076dd6164b *NAMESPACE
+6eb9fdf8fc1bb8996065491e577464b8 *R/applyclassifiers.R
+06d087e5273286c8a542fa3cc8f6f5df *R/cpt.R
+f16b09cf2a898e26ae376ee2ae077f6c *R/getmetric.R
+a118e9ddd7cac7894237e5fe02df8437 *R/gettestmethod.R
+70f2ae6f2a683d5776ab392189bee83a *R/gettestmethods.R
+bdb13c32469d01d76c4de6f03fb660bc *R/getteststat.R
+58fa478f85cba4a77a477636fa43b6a0 *R/gettrainmethod.R
+ef2d130d68e57477a20eb762e0c00b53 *R/gettrainmethods.R
+78fa1692627fa4fb614645a62e57e748 *R/train.R
+44d74470c02d53b64e0fd0ed62461ec8 *man/cpt-package.Rd
+1ad9ff61783b51b5032ced2c54fa8543 *man/cpt.Rd

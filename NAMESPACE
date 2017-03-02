@@ -1,0 +1,7 @@
+import(MASS, nnet, randomForest)
+
+importFrom("stats", "coefficients", "model.matrix", "predict", "rbinom")   
+
+export(
+cpt
+)
