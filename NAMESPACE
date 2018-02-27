@@ -1,6 +1,6 @@
-import(MASS, nnet, randomForest)
+import(MASS, nnet, randomForest, glmnet)
 
-importFrom("stats", "coefficients", "model.matrix", "predict", "rbinom")   
+importFrom("stats", "coefficients", "model.matrix", "predict", "rbinom", "sd")   
 
 export(
 cpt

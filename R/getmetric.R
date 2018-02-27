@@ -12,7 +12,7 @@ function (metric)
             indexmat = cbind(1:nrow(prob), tstT)
             temp = prob - apply(prob, 1, max) == 0
             temp = temp/apply(temp, 1, sum)
-            return(mean(prob[indexmat]))
+            return(mean(temp[indexmat]))
         }
     }
     else if (metric == "mse") {

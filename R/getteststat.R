@@ -1,28 +1,29 @@
 getteststat <-
 function (Z, T, leaveout, train.methods, test.methods, metric, 
-    leaveout.N) 
+    ensemble.metric, leaveout.N) 
 {
     if (leaveout == 0) {
         classifiers = train(Z, T, train.methods)
-        metrics = applyclassifiers(Z, T, classifiers, test.methods, 
-            metric)
-        return(max(metrics))
+        return(applyclassifiers(Z, T, classifiers, test.methods, 
+            metric, ensemble.metric, testistrain = TRUE))
     }
     else if ((leaveout == 1) & (leaveout.N == nrow(Z))) {
-        metricsmat = matrix(0, leaveout.N, length(train.methods))
+        metric.mat = matrix(NA, leaveout.N, length(train.methods) + 
+            1)
         for (leaveout.i in 1:leaveout.N) {
             trnZ = Z[-leaveout.i, , drop = FALSE]
             trnT = T[-leaveout.i]
             tstZ = Z[leaveout.i, , drop = FALSE]
             tstT = T[leaveout.i]
             classifiers = train(trnZ, trnT, train.methods)
-            metricsmat[leaveout.i, ] = applyclassifiers(tstZ, 
-                tstT, classifiers, test.methods, metric)
+            metric.mat[leaveout.i, ] = applyclassifiers(tstZ, 
+                tstT, classifiers, test.methods, metric, ensemble.metric)
         }
-        return(max(apply(metricsmat, 2, mean)))
+        return(apply(metric.mat, 2, mean))
     }
     else {
-        metricsmat = matrix(0, leaveout.N, length(train.methods))
+        metric.mat = matrix(NA, leaveout.N, length(train.methods) + 
+            1)
         for (leaveout.i in 1:leaveout.N) {
             testset = rep(FALSE, length(T))
             for (i in 1:length(levels(T))) testset[sample(which(levels(T)[i] == 
@@ -32,9 +33,9 @@ function (Z, T, leaveout, train.methods, test.methods, metric,
             tstZ = Z[testset, , drop = FALSE]
             tstT = T[testset]
             classifiers = train(trnZ, trnT, train.methods)
-            metricsmat[leaveout.i, ] = applyclassifiers(tstZ, 
-                tstT, classifiers, test.methods, metric)
+            metric.mat[leaveout.i, ] = applyclassifiers(tstZ, 
+                tstT, classifiers, test.methods, metric, ensemble.metric)
         }
-        return(max(apply(metricsmat, 2, mean)))
+        return(apply(metric.mat, 2, mean))
     }
 }

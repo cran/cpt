@@ -7,15 +7,15 @@ Classification Permutation Test
 }
 
 \description{
-Non-parametric test for equality of multivariate distributions.  Trains a classifier to classify (multivariate) observations as coming from one of two distributions.  If the classifier is able to classify the observations better than would be expected by chance (using permutation inference), then the null hypothesis that the two distributions are equal is rejected.  
+Description: Non-parametric test for equality of multivariate distributions.  Trains a classifier to classify (multivariate) observations as coming from one of several distributions.  If the classifier is able to classify the observations better than would be expected by chance (using permutation inference), then the null hypothesis that the distributions are equal is rejected.  
 }
 
 \details{
 \tabular{ll}{
 Package: \tab cpt\cr
 Type: \tab Package\cr
-Version: \tab 0.9\cr
-Date: \tab 2017-3-1\cr
+Version: \tab 1.0\cr
+Date: \tab 2018-2-26\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 }
