@@ -46,8 +46,8 @@ function (Z, T, leaveout = 0, class.methods = "forest", metric = "probability",
     colnames(nullpvaldist) = names(pvals)
     for (method.i in 1:ncol(nulldist)) {
         pvals[method.i] = sum(nulldist[, method.i] >= teststat[method.i])/perm.N
-        nullpvaldist[, method.i] = rank(nulldist[, method.i], 
-            ties.method = "max")/perm.N
+        nullpvaldist[, method.i] = 1 - (rank(nulldist[, method.i], 
+            ties.method = "min") - 1)/perm.N
     }
     nullcombpvaldist = apply(nullpvaldist[, comb.methods, drop = FALSE], 
         1, comb.method)

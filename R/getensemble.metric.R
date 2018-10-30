@@ -20,6 +20,13 @@ function (ensemble.metric)
             return(mean(meanprob[indexmat]))
         }
     }
+    if (ensemble.metric == "mean.log") {
+        rval = function(class.output, tstT) {
+            meanprob = apply(class.output, c(1, 3), mean)
+            indexmat = cbind(1:nrow(meanprob), tstT)
+            return(mean(log(meanprob[indexmat] + 1e-04)))
+        }
+    }
     if (ensemble.metric == "mean.mse") {
         rval = function(class.output, tstT) {
             meanprob = apply(class.output, c(1, 3), mean)

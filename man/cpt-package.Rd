@@ -14,8 +14,8 @@ Description: Non-parametric test for equality of multivariate distributions.  Tr
 \tabular{ll}{
 Package: \tab cpt\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2018-2-26\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2018-10-30\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 }

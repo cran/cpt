@@ -7,6 +7,12 @@ function (metric)
             return(mean(prob[indexmat]))
         }
     }
+    if (metric == "logscore") {
+        rval = function(prob, tstT) {
+            indexmat = cbind(1:nrow(prob), tstT)
+            return(mean(log(prob[indexmat] + 1e-04)))
+        }
+    }
     else if (metric == "rate") {
         rval = function(prob, tstT) {
             indexmat = cbind(1:nrow(prob), tstT)
